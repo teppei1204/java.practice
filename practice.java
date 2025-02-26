@@ -134,3 +134,82 @@ name 変数には、"蕪木" という文字列がメモリ上のどこに保存
 基本データ型: 変数の中にデータそのものが入る
 参照型: 変数の中にはデータの参照値（アドレス）が入る
 ※入るものが明確に異なります。
+
+
+## 配列
+
+### ・配列は同じデータ型の変数を複数まとめて管理するもの
+
+- 配列を生成するには `new` を使います。生成時にデフォルト初期化が設定されます。
+  - 整数や少数なら `0`
+  - 文字なら空文字 (`''`)
+  - 真偽値なら `false`
+
+### ・配列の生成方法
+```java
+データ型[] 配列名 = new データ型[要素数];
+int[] score = new int[3];  // new int[3]なので、メモリ上に32ビットの整数を入れる領域を3つ作成
+score には、このデータがメモリ上のどこにあるかというアドレスの値（参照値）が格納されます。
+添字は [] 内の数字で、0から始まります。
+java
+コピーする
+score[0] = 80;  // 添字0
+・配列の初期化
+java
+コピーする
+データ型[] 配列名 = {値1, 値2, ...};
+・配列の長さを取得
+java
+コピーする
+配列名.length  // 配列の要素数を取得できます
+・例: 配列の使用例
+java
+コピーする
+class Array {
+  public static void main(String[] args) {
+    int[] score = new int[3];
+    score[0] = 80;
+    score[1] = 100;
+    score[2] = 75;
+
+    String[] name = {"蕪木", "佐藤", "田中"};
+
+    System.out.println(name[0] + "さん:" + score[0] + "点");
+    System.out.println(name[1] + "さん:" + score[1] + "点");
+    System.out.println(name[2] + "さん:" + score[2] + "点");
+    System.out.println("受験者数:" + score.length + "名");
+  }
+}
+・多次元配列
+配列の中に配列を作成することができます。
+java
+コピーする
+int[][] allScore = new int[2][3];  // [行][列]
+一つ目の行は最初の数値が [0] で、列に合わせて [0][0], [0][1], [0][2] となります。
+allScore.length は 2、allScore[0].length は 3 です。
+・多次元配列の初期化
+java
+コピーする
+int[][] allScore = {{10, 20, 30}, {40, 50, 60}};
+・コマンドラインからのデータ入力
+java コマンド実行時に、プログラムにデータを渡すことができます。
+bash
+コピーする
+> java CmdLine Hello Java
+java
+コピーする
+class CmdLine {
+  public static void main(String[] args) {
+    // コマンドラインから渡されたデータを受け取るString型の配列 args
+  }
+}
+java
+コピーする
+class CmdLine {
+  public static void main(String[] args) {
+    System.out.println("args[0] : " + args[0]);
+    System.out.println("args[1] : " + args[1]);
+    System.out.println("args.length : " + args.length);
+  }
+}
+コマンドラインから入力されたデータは、args 配列に格納され、プログラムが開始します。
