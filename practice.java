@@ -407,3 +407,123 @@ class Cast {
   }
 }
 上記のプログラムでは、price * (1 + rate)の計算結果をint型にキャストしてamountに代入しています。キャストがないと、double型の計算結果をそのままint型に代入することができず、エラーが発生します。
+
+
+## 構造化プログラミング (if文, switch文)
+
+プログラムは、以下の3つの構造を組み合わせて作成します。
+
+1. **順次進行**  
+   処理 -> 処理 -> 処理 ->
+
+2. **分岐**  
+   条件 -> true -> 処理 ->  
+            -> false -> 処理 ->
+
+3. **繰り返し**  
+   条件 -> 処理 ->
+
+---
+
+### if文
+
+`if`文は条件を判定し、条件を満たしていれば処理を実行し、満たさなければ別の処理を実行します。
+
+```java
+if (条件式) {
+  // 条件を満たした時の処理
+} else {
+  // 条件を満たしていない時の処理
+}
+elseは省略可能です。
+処理が1つの場合、波括弧 {} を省略することができます。
+java
+コピーする
+class Branch1 {
+  public static void main(String[] args) {
+    int price = Integer.parseInt(args[0]);
+    double rate = 0.10;
+    int discount, amount;
+    if (price >= 3000) {  // 値引額の設定
+      discount = 300;
+    } else {
+      discount = 0;
+    }
+    amount = (int)((price - discount) * (1 + rate));
+    System.out.println("値引金額:" + discount + "円");
+    System.out.println("税込金額:" + amount + "円");
+  }
+}
+else-if文
+複数の条件を順番に評価し、最初に真となった条件の処理を実行します。
+
+java
+コピーする
+if (条件1) {
+  // 処理1
+} else if (条件2) {
+  // 処理2
+} else {
+  // 処理3
+}
+条件式は上から順番に評価されます。
+
+java
+コピーする
+class Branch2 {
+  public static void main(String[] args) {
+    int price = Integer.parseInt(args[0]);
+    double rate = 0.10;
+    int discount, amount;
+
+    if (price >= 5000) {  // 値引額の設定
+      discount = 500;
+    } else if (price >= 3000) {
+      discount = 300;
+    } else {
+      discount = 0;
+    }
+
+    amount = (int)((price - discount) * (1 + rate));
+    System.out.println("値引金額:" + discount + "円");
+    System.out.println("税込金額:" + amount + "円");
+  }
+}
+switch文
+switch文では、式の値に応じて異なる処理を行います。
+
+java
+コピーする
+switch(式) {
+  case 値1:
+    // 処理1
+    break;
+  case 値2:
+    // 処理2
+    break;
+  default:
+    // 処理3
+}
+式はbyte、short、int、char型のみ使用できます。
+caseに対応する値にマッチした場合、その処理が実行されます。
+breakでswitch文を終了し、次の処理に進みます。
+java
+コピーする
+class Branch3 {
+  public static void main(String[] args) {
+    int num = Integer.parseInt(args[0]);
+    switch (num) {
+      case 1:
+        System.out.println("入園料金:8400円");
+        break;
+      case 2:
+        System.out.println("入園料金:7000円");
+        break;
+      case 3:
+        System.out.println("入園料金:5000円");
+        break;
+      default:
+        System.out.println("1:一般, 2:中・高校生, 3:小学生・幼児");
+    }
+  }
+}
