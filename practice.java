@@ -527,3 +527,116 @@ class Branch3 {
     }
   }
 }
+
+
+## 繰り返し文 (while文, for文)
+
+### while文
+
+`while`文は、条件式が`true`である限り、繰り返し処理を実行します。
+
+```java
+while (条件式) {
+  // 処理
+}
+例えば、次のようなコードでは、iが3未満の間、iの値を表示し続けます。
+
+java
+コピーする
+int i = 0;
+while (i < 3) {
+  System.out.println("i = " + i);
+  i++;
+}
+表示結果
+
+ini
+コピーする
+i = 0  
+i = 1  
+i = 2  
+サンプル
+java
+コピーする
+class Loop1 {
+  public static void main(String[] args) {
+    int i = 0;
+    while (i < 3) {
+      System.out.println("i = " + i);
+      i++;
+    }
+  }
+}
+最初に変数iを0で初期化し、その後iをカウントアップしていきます。
+for文
+for文は、繰り返し処理の際に変数の初期化、条件式の判定、インクリメント処理を1つの構文内で書くことができ、可読性が向上します。
+
+java
+コピーする
+for (式1; 条件式; 式2) {
+  // 処理
+}
+式1: カウンタ変数の初期化
+条件式: 繰り返し処理を続ける条件
+式2: 処理後のカウンタ変数の更新（インクリメント）
+次のコードは、iが0から2までの値を表示します。
+
+java
+コピーする
+for (int i = 0; i < 3; i++) {
+  System.out.println("i = " + i);
+}
+サンプル
+java
+コピーする
+class Loop2 {
+  public static void main(String[] args) {
+    for (int i = 0; i < 3; i++) {
+      System.out.println("i = " + i);
+    }
+  }
+}
+配列とfor文の組み合わせ
+配列を使って、複数のデータを一度に処理する方法として、for文を使ってループ処理を行います。
+
+java
+コピーする
+class Array {
+  public static void main(String[] args) {
+    int[] score = new int[3];
+    score[0] = 80;
+    score[1] = 100;
+    score[2] = 75;
+
+    String[] name = {"蕪木", "佐藤", "田中"};
+
+    System.out.println(name[0] + "さん:" + score[0] + "点");
+    System.out.println(name[1] + "さん:" + score[1] + "点");
+    System.out.println(name[2] + "さん:" + score[2] + "点");
+    System.out.println("受験者数:" + score.length + "名");
+  }
+}
+このコードは、3人の名前と得点を表示しています。
+
+リファクタリング例
+上記のコードをリファクタリングして、配列の長さに基づいて繰り返し処理を行うようにします。これにより、繰り返し処理が簡潔になり、可読性が向上します。
+
+java
+コピーする
+class Loop3 {
+  public static void main(String[] args) {
+    int[] score = new int[3];
+    score[0] = 80;
+    score[1] = 100;
+    score[2] = 75;
+
+    String[] name = {"蕪木", "佐藤", "田中"};
+
+    for (int i = 0; i < score.length; i++) {
+      System.out.println(name[i] + "さん:" + score[i] + "点");
+    }
+    System.out.println("受験者数:" + score.length + "名");
+  }
+}
+配列の長さ score.length を使って、繰り返し処理を行うことで、コードの再利用性が向上します。
+iをインデックスとして使用し、名前と得点を対応させて表示します。
