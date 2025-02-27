@@ -213,3 +213,107 @@ class CmdLine {
   }
 }
 コマンドラインから入力されたデータは、args 配列に格納され、プログラムが開始します。
+
+
+## 演習問題
+
+### Q.1
+**GreetingBug.javaをコンパイルするとエラーが表示されてしまいました。どこが間違えているでしょうか。**
+
+```java
+class GreetingBug {
+  pubric static void main(String args){
+    System,out.println("こんにちは。");
+    System.out.println("一緒に頑張りましょう");
+  }
+}
+間違い
+
+A___ public のスペルミス
+A___ 2行目 [] が足りない
+A___ 3行目の , が . である
+A___ 3行目の : が ; である
+A___ 6行目の { が } である
+Q.2
+ShowData.javaにコードを追加して、変数の値を画面に表示するプログラムを完成させてください。 変数のデータ型や変数名、値は以下の通り。
+
+int num = 10
+double pi = 3.14
+char blood = 'A'
+boolean fun = true
+String msg = "好きなメッセージ"
+java
+コピーする
+class ShowData {
+  public static void main(String[] args) {
+    // 変数の宣言と値の代入
+    int num = 10;
+    double pi = 3.14;
+    char blood = 'A';
+    boolean fun = true;
+    String msg = "努力";
+
+    // 値の表示
+    System.out.println(num);
+    System.out.println(pi);
+    System.out.println(blood);
+    System.out.println(fun);
+    System.out.println(msg);
+  }
+}
+Q.3
+ArrayBug.javaをコンパイルして実行するとエラーが表示されてしまいました。どこをどのように直せば良いでしょうか。
+
+java
+コピーする
+class ArrayBug {
+  public static void main(String[] args) {
+    String[] name = new String[4];
+
+    name[0] = "蕪木";
+    name[1] = "木下";
+    name[2] = "佐藤";
+    name[3] = "鈴木";
+    name[4] = "大橋";  // ここがエラー
+
+    System.out.println(name[0]);
+    System.out.println(name[1]);
+    System.out.println(name[2]);
+    System.out.println(name[3]);
+    System.out.println(name[4]);
+  }
+}
+間違い
+
+配列の指定は4つなので、添字 0 から 3 までの範囲で指定しなければなりません。
+name[4] は範囲外です。正しくは、name[3] までに修正する必要があります。
+Q.4
+ScoreArray.javaにコードを追加して、テストの点数を表示するプログラムを完成させてください。
+
+点数 (int型) を4つ格納する配列 data には以下の値を代入します。
+
+配列 data
+添字 0: 90
+添字 1: 80
+添字 2: 100
+添字 3: 90
+java
+コピーする
+class ScoreArray {
+  public static void main(String[] args) {
+    // 配列の生成
+    int[] data = new int[4];
+
+    // 配列に値を代入
+    data[0] = 90;
+    data[1] = 80;
+    data[2] = 100;
+    data[3] = 90;
+
+    // 値を表示
+    System.out.println("1人目は" + data[0] + "点");
+    System.out.println("2人目は" + data[1] + "点");
+    System.out.println("3人目は" + data[2] + "点");
+    System.out.println("4人目は" + data[3] + "点");
+  }
+}
