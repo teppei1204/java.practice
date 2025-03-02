@@ -640,3 +640,104 @@ class Loop3 {
 }
 配列の長さ score.length を使って、繰り返し処理を行うことで、コードの再利用性が向上します。
 iをインデックスとして使用し、名前と得点を対応させて表示します。
+
+
+// Q.1: Triangle
+class Triangle {
+  public static void main(String[] args) {
+      // 引数を整数に変換
+      int height = Integer.parseInt(args[0]);
+      int width = Integer.parseInt(args[1]);
+      int area; // 面積の値を代入する変数
+      
+      // 面積の計算
+      area = height * width / 2;
+      
+      // 高さ・幅・面積の表示
+      System.out.println("高さ: " + height);
+      System.out.println("幅: " + width);
+      System.out.println("面積: " + area);
+  }
+}
+// 実行例
+// > java Triangle 5 10
+// 高さ: 5
+// 幅: 10
+// 面積: 25
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Q.2: Circle
+class Circle {
+  public static void main(String[] args) {
+      // 引数を整数に変換
+      int radius = Integer.parseInt(args[0]);
+      double pi = 3.141592;
+      double area;
+      
+      // 面積の計算
+      area = radius * radius * pi;
+      
+      // 小数点第3位以降を切り捨て
+      area = (int)(area * 100); 
+      area = area / 100;
+      
+      // 半径と面積の表示
+      System.out.println("半径: " + radius);
+      System.out.println("面積: " + area);
+  }
+}
+// 変数は宣言したブロック内でのみ有効です。
+// 例えば、areaはメソッド内で宣言されたので、メソッド内でのみ使用可能です。
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Q.3: Comparison
+class Comparison {
+  public static void main(String[] args) {
+      // 引数を整数に変換
+      int a = Integer.parseInt(args[0]);
+      int b = Integer.parseInt(args[1]);
+      
+      // 大きい方の値を表示
+      if (a > b) {
+          System.out.println("大きいのは " + a + " です");
+      } else if (b > a) {
+          System.out.println("大きいのは " + b + " です");
+      } else {
+          System.out.println("同じです");
+      }
+  }
+}
+// 変数aとbは、if文の中で使用されており、メインメソッド内で宣言されたため、
+// メソッド内であればどこでも使えるスコープです。
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Q.4: LoopMessage
+class LoopMessage {
+  public static void main(String[] args) {
+      // メッセージを10回表示 (while文)
+      int i = 1;
+      while (i <= 10) {
+          System.out.println(i + "回目: フルスタックエンジニアになりたい");
+          i++; // インクリメントを忘れないように注意
+      }
+  }
+}
+// 変数iはwhile文の中で使われ、メソッド内で宣言されているため、while文の外でも使えるスコープです。
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Q.5: Echo
+class Echo {
+  public static void main(String[] args) {
+      // コマンドラインの入力文字列を表示 (for文)
+      for (int i = 0; i < args.length; i++) {
+          System.out.println(args[i]);
+      }
+  }
+}
+// 変数iはfor文の中で使われており、for文内でのスコープです。
+// 変数iはforループ内で宣言されているため、forループの外では使えません。
+
