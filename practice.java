@@ -741,3 +741,81 @@ class Echo {
 // 変数iはfor文の中で使われており、for文内でのスコープです。
 // 変数iはforループ内で宣言されているため、forループの外では使えません。
 
+
+## オブジェクト指向
+
+### メインメソッドだけで処理を書く限界
+
+メインメソッドひとつで色々な処理を記述するのは限界があります。  
+以下の例では、複数の生徒の名前と点数を処理していますが、オブジェクト指向を使用すると、データと処理をより整理できます。
+
+#### 例: オブジェクト指向ではない場合
+```java
+class NonObject {
+  public static void main(String[] args) {
+    // データの代入
+    int[] score = {80, 100, 75};
+    String[] name = {"菅原", "蕪木", "寺島"};
+
+    for (int i = 0; i < score.length; i++) {
+      System.out.println(name[i] + "さん: " + score[i] + "点");
+    }
+  }
+}
+このコードでは、処理が一か所に集まり、可読性や保守性が低くなります。
+
+実行用クラスと設計図クラス
+オブジェクト指向では、実行用クラスと設計図クラスを分けます。設計図クラスは、データ（属性）と処理（操作）をまとめます。
+
+生徒の情報を管理する場合
+名前、英語、数学 → 属性 (何のデータを持っているか)
+点数を表示する → 操作 (何の処理をできるか)
+例:
+java
+コピーする
+class Student {
+    String name;
+    int englishScore;
+    int mathScore;
+
+    // コンストラクタ
+    public Student(String name, int englishScore, int mathScore) {
+        this.name = name;
+        this.englishScore = englishScore;
+        this.mathScore = mathScore;
+    }
+
+    // 点数を表示するメソッド
+    public void showScores() {
+        System.out.println("名: " + name + " 英: " + englishScore + " 数: " + mathScore);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student1 = new Student("蕪木", 90, 80);
+        Student student2 = new Student("橘", 60, 100);
+        
+        student1.showScores();
+        student2.showScores();
+    }
+}
+オブジェクトとは？
+具体的なデータを入れて作った実物のことをオブジェクトと言います。
+オブジェクト指向は、オブジェクトを中心にしてプログラムを作る考え方です。
+オブジェクト指向のメリット
+開発効率
+複数の人がそれぞれのクラスを担当することで、分担して開発ができ、効率よく進められます。
+
+保守性
+一度作ったプログラムを修正や機能追加を行う際に、影響範囲を限定できるためメンテナンスが容易になります。
+
+メモリ効率
+必要なクラスや変数をその都度メモリ上に読み込んで実行するので、使用メモリが効率的です。
+
+システム化
+何を持っていて、何ができるかという２つの情報をまとめることで、現実世界のシステムをプログラムに置き換えやすくなります。
+
+クラスとオブジェクト
+クラスとオブジェクトという考え方は、オブジェクト指向の3大要素の一つに過ぎません。
+他にも、継承やポリモーフィズム（多態性）といった重要な概念があります。
