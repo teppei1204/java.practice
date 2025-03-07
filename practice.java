@@ -819,3 +819,55 @@ public class Main {
 クラスとオブジェクト
 クラスとオブジェクトという考え方は、オブジェクト指向の3大要素の一つに過ぎません。
 他にも、継承やポリモーフィズム（多態性）といった重要な概念があります。
+
+## メンバ変数 (属性)
+
+クラス内で定義される変数は「**メンバ変数**」または「**属性**」と呼ばれます。  
+例えば、以下のクラス `Student` では、`name`、`engScore`、`mathScore` がメンバ変数にあたります。
+
+```java
+class Student {
+  // メンバ変数(属性)
+  String name;
+  int engScore;
+  int mathScore;
+
+  // メソッド(操作)
+  void display() {
+    System.out.println(name + "さん");
+    System.out.println("英語 " + engScore + "点・数学 " + mathScore + "点");
+  }
+
+  void setScore(int eng, int math) {
+    engScore = eng;
+    mathScore = math;
+  }
+
+  double getAvg() {
+    double avg = (engScore + mathScore) / 2.0;
+    return avg;
+  }
+}
+メソッドの定義
+メソッドの定義は以下のように行います：
+
+scss
+コピーする
+戻り値の型 メソッド名(引数リスト) {
+  (処理)
+}
+引数
+引数は、メソッドが呼び出される際に外部から受け取る値です。
+メソッド内で使用するために、引数をメソッドの宣言時に指定します。
+戻り値
+メソッドが処理を終えた後に呼び出し元に返す値です。
+return 文を使って返すことができます。
+何も返さない場合は、戻り値の型に void を記述します。
+例
+上記の Student クラスでは、setScore メソッドが引数を受け取り、getAvg メソッドが戻り値を返しています。
+
+setScore(int eng, int math)：引数 eng と math を受け取り、engScore と mathScore に設定します（戻り値はなし）。
+getAvg()：計算した平均を戻り値として返します（戻り値は double 型）。
+
+
+
