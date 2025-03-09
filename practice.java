@@ -870,4 +870,74 @@ setScore(int eng, int math)：引数 eng と math を受け取り、engScore と
 getAvg()：計算した平均を戻り値として返します（戻り値は double 型）。
 
 
+## オブジェクトの使い方
 
+### ① 生成
+
+```java
+クラス名 オブジェクト名 = new クラス名();
+student stu1 = new Student();
+プログラムにおいてオブジェクトを作ることを「インスタンス化」と呼び、プログラムの中で実際にできたオブジェクトを「インスタンス」と呼びます。
+
+② 変数・メソッドを利用
+java
+コピーする
+オブジェクト名.変数名
+オブジェクト名.メソッド名(引数)
+例:
+
+java
+コピーする
+stu1.name = "蕪木";
+stu1.setScore(80, 90);
+stu1の設計図に書いてあるsetScore()の処理を実行できます。
+
+サンプルコード
+Studentクラス
+java
+コピーする
+class Student {
+  // メンバ変数（属性）
+  String name;
+  int engScore;
+  int mathScore;
+
+  // メソッド（操作）
+  void display() {
+    System.out.println(name + "さん");
+    System.out.println("英語 " + engScore + "点・数学 " + mathScore + "点");
+  }
+
+  void setScore(int eng, int math) {
+    engScore = eng;
+    mathScore = math;
+  }
+
+  double getAvg() {
+    double avg = (engScore + mathScore) / 2.0;
+    return avg;
+  }
+}
+StuSampleクラスの実行
+java
+コピーする
+class StuSample {
+  public static void main(String[] args) {
+    // 戻り値はないのでvoidというキーワードが書かれている
+    Student stu1 = new Student();
+    // この1行を実行するだけでメモリで確保されてそのアドレスがstu1に入る処理が行われる
+
+    stu1.name = "蕪木";
+    stu1.setScore(90, 80);
+
+    stu1.display();
+    System.out.println("平均 " + stu1.getAvg() + "点");
+  }
+}
+結果
+実行結果として、以下のように表示されます。
+
+コピーする
+蕪木さん
+英語 90点・数学 80点
+平均 85.0点
