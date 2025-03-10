@@ -1059,3 +1059,151 @@ class StuSample2 {
 英語 90点・数学 80点
 佐藤さん
 英語 75点・数学 100点
+
+
+## コンストラクタ (組み立てる / 作成する)
+
+### コンストラクタとは
+
+オブジェクトの初期化のために使われる特殊なメソッドを「**コンストラクタ**」と呼びます。  
+コンストラクタには以下のルールがあります。
+
+### ルール
+
+1. **名前がクラス名と同じ**  
+2. **戻り値を持たない**  
+3. **`new クラス名(引数)`** の形で呼び出す
+
+### `Student` クラスの例
+
+```java
+class Student {
+  // 名前を初期化するコンストラクタ
+  Student(String n) {
+    // 初期化処理
+  }
+
+  // 名前、英語、数学のスコアを初期化するコンストラクタ
+  Student(String n, int e, int m) {
+    // 初期化処理
+  }
+}
+メインメソッドでの使用例
+java
+public static void main(String[] args) {
+  // 名前だけを設定してStudentオブジェクトを生成
+  Student stu1 = new Student("蕪木");
+
+  // 名前、英語、数学のスコアを設定してStudentオブジェクトを生成
+  Student stu2 = new Student("佐藤", 75, 100);
+}
+デフォルトコンストラクタ
+コンストラクタを定義しない場合、Javaは自動的に引数なしの「デフォルトコンストラクタ」を生成します。
+例えば、以下のようなコンストラクタが自動で生成されます。
+
+java
+Student() {
+  // デフォルトの初期化処理
+}
+Student2 クラスの例（コンストラクタを使用しない場合）
+java
+class Student2 {
+  String name;
+  int engScore;
+  int mathScore;
+
+  // 名前を設定
+  void setData(String n) {
+    name = n;
+  }
+
+  // 名前、英語、数学のスコアを設定
+  void setData(String n, int e, int m) {
+    name = n;
+    engScore = e;
+    mathScore = m;
+  }
+
+  // 英語と数学のスコアを設定
+  void setScore(int e, int m) {
+    engScore = e;
+    mathScore = m;
+  }
+
+  // 学生情報を表示
+  void display() {
+    System.out.println(name + "さん");
+    System.out.println("英語 " + engScore + "点・数学 " + mathScore + "点");
+  }
+}
+Student3 クラス（コンストラクタを使った例）
+java
+class Student3 {
+  String name;
+  int engScore;
+  int mathScore;
+
+  // 名前を設定するコンストラクタ
+  Student3(String n) {
+    name = n;
+  }
+
+  // 名前、英語、数学のスコアを設定するコンストラクタ
+  Student3(String n, int e, int m) {
+    name = n;
+    engScore = e;
+    mathScore = m;
+  }
+
+  // 英語と数学のスコアを設定
+  void setScore(int e, int m) {
+    engScore = e;
+    mathScore = m;
+  }
+
+  // 学生情報を表示
+  void display() {
+    System.out.println(name + "さん");
+    System.out.println("英語 " + engScore + "点・数学 " + mathScore + "点");
+  }
+}
+StuSample2 クラス（コンストラクタを使用しない場合）
+java
+class StuSample2 {
+  public static void main(String[] args) {
+    Student2 stu1 = new Student2();
+    Student2 stu2 = new Student2();
+
+    // stu1に名前とスコアを設定
+    stu1.setData("蕪木");
+    stu1.setScore(90, 80);
+    stu1.display();
+
+    // stu2に名前、英語、数学のスコアを設定
+    stu2.setData("佐藤", 75, 100);
+    stu2.display();
+  }
+}
+StuSample3 クラス（コンストラクタを使用した場合）
+java
+class StuSample3 {
+  public static void main(String[] args) {
+    // Student3クラスのインスタンスを作成
+    Student3 stu1 = new Student3("蕪木");
+    Student3 stu2 = new Student3("佐藤", 75, 100);
+
+    // stu1に英語、数学のスコアを設定
+    stu1.setScore(90, 80);
+    stu1.display();
+
+    // stu2の情報を表示
+    stu2.display();
+  }
+}
+実行結果
+実行結果として、以下のように表示されます。
+
+蕪木さん
+英語 90点・数学 80点
+佐藤さん
+英語 75点・数学 100点
