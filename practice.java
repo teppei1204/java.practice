@@ -1207,3 +1207,102 @@ class StuSample3 {
 英語 90点・数学 80点
 佐藤さん
 英語 75点・数学 100点
+
+
+## staticとは
+
+### 作ったインスタンスの個数を知る方法は？
+
+```java
+class Student {
+  int counter = 0;
+
+  Student() {
+    counter++;
+  }
+}
+インスタンス内の変数では、インスタンスの個数をカウントできません。
+全インスタンスが共通して使える変数が必要です。
+static変数・staticメソッドとは？
+staticをつけた変数やメソッドのことをstatic変数・staticメソッドと呼びます。
+
+java
+class Student {
+  static int counter = 0;
+
+  Student() {
+    counter++;
+  }
+
+  static void display() {
+    System.out.println(counter + "人です");
+  }
+}
+staticを使うべき場合
+全インスタンスから共通して使う変数やメソッドを作りたい時
+このクラスの関連する便利なメソッドをまとめたい時
+その際、staticキーワードを使います。
+
+設計図クラス static無し
+java
+class Student4 {
+  String name;
+  int counter = 0;
+
+  Student4(String n) {
+    name = n;
+    counter++;
+    System.out.println(name + "さんをインスタンス化しました");
+  }
+
+  void display() {
+    System.out.println(counter + "人です");
+  }
+}
+実行用クラス static無し
+java
+class StuSample4 {
+  public static void main(String[] args) {
+    Student4 stu1 = new Student4("蕪木");
+    stu1.display();
+
+    Student4 stu2 = new Student4("佐藤");
+    stu2.display();
+  }
+}
+設計図クラス static有り
+java
+class Student4 {
+  String name;
+  static int counter = 0;
+
+  Student4(String n) {
+    name = n;
+    counter++;
+    System.out.println(name + "さんをインスタンス化しました");
+  }
+
+  static void display() {
+    System.out.println(counter + "人です");
+  }
+}
+実行用クラス static有り
+java
+class StuSample4 {
+  public static void main(String[] args) {
+    Student4.display();
+
+    Student4 stu1 = new Student4("蕪木");
+    Student4.display();
+
+    Student4 stu2 = new Student4("佐藤");
+    Student4.display();
+  }
+}
+static変数・メソッドを使うポイント
+static変数は全インスタンスで共通です。
+staticメソッドはインスタンス化しなくても呼び出すことができます。
+呼び出し方：クラス名.変数またはクラス名.メソッド()という形式です。
+まとめ
+staticを使うことで、クラス全体で共通する変数やメソッドを管理できます。
+インスタンスを作成しなくても利用できるため、便利な場面があります。
