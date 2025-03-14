@@ -1308,4 +1308,114 @@ staticを使うことで、クラス全体で共通する変数やメソッド�
 インスタンスを作成しなくても利用できるため、便利な場面があります。
 
 
-// カプセル化・そのメリット
+## カプセル化・そのメリット
+
+### ・アクセス修飾子
+
+クラス・メンバ変数・メソッドの公開範囲を指定できます。
+
+| 修飾子     | 同クラス | 同パッケージ | サブクラス | 他 |
+|-------------|----------|--------------|------------|----|
+| `public`    | ○        | ○            | ○          | ○  |
+| `protected` | ○        | ○            | ○          |    |
+| なし        | ○        | ○            |            |    |
+| `private`   | ○        |              |            |    |
+
+```java
+class Student {
+    private int score;
+
+    public void setScore(int s) {
+        // :
+        score = s;
+    }
+}
+
+Student stu = new Student();
+stu.setScore(80);  // 正しい
+// stu.score = 80;  // 誤り
+・メンバ変数は隠蔽（private）して、クラスとメソッドは公開（public）する設計方針をカプセル化と呼びます
+メリット
+代入前処理:
+変数への直接代入をprivateで禁止し、メソッドを通してのみ値を代入できるようにプログラムを設計することで、不正な値が入るのを防ぐことができます。
+
+修正範囲:
+privateを指定したプログラムを作っていれば、scoreの変更はこのクラスの中だけで、scoreの情報は外に出てこないので、修正範囲がクラス内に限定されます。
+
+例1: privateの使用
+java
+public class Student5 {
+    private String name;  // メンバ変数
+    int score;
+
+    public Student5(String n) {  // コンストラクター
+        name = n;
+    }
+
+    public void setScore(int s) {
+        if (0 <= s && s <= 100) {
+            score = s;
+        } else {
+            System.out.println(name + "さんの点数が範囲外です");
+            score = 0;
+        }
+    }
+
+    void display() {
+        System.out.println(name + "さん:" + score + "点");
+    }
+}
+
+class StuSample5 {
+    public static void main(String[] args) {
+        Student5 stu1 = new Student5("蕪木");
+        stu1.setScore(80);
+        stu1.display();
+
+        Student5 stu2 = new Student5("佐藤");
+        stu2.setScore(-50);  // 正しい
+        // stu2.score = -50;  // この`score`は`private`指定していないため、別のクラスから直接アクセスできる
+        stu2.display();
+    }
+}
+例2: private指定によるエラー
+java
+public class Student5 {
+    private String name;  // メンバ変数
+    private int score;    // `public`を書くとコンパイル時にエラーが出る
+
+    public Student5(String n) {  // コンストラクター
+        name = n;
+    }
+
+    public void setScore(int s) {
+        if (0 <= s && s <= 100) {
+            score = s;
+        } else {
+            System.out.println(name + "さんの点数が範囲外です");
+            score = 0;
+        }
+    }
+
+    void display() {
+        System.out.println(name + "さん:" + score + "点");
+    }
+}
+
+class StuSample5 {
+    public static void main(String[] args) {
+        Student5 stu1 = new Student5("蕪木");
+        stu1.setScore(80);
+        stu1.display();
+
+        Student5 stu2 = new Student5("佐藤");
+        // stu2.setScore(-50);  // 正しい
+        // stu2.score = -50;  // エラー: `score`は`private`で外部からアクセスできない
+        stu2.display();
+    }
+}
+・一般的な設計方針
+メンバ変数にはprivateを指定し、
+メソッドにはpublicを指定します。
+
+メソッドを通じてメンバ変数を利用したり設定したりします。
