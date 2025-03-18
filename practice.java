@@ -1421,4 +1421,166 @@ class StuSample5 {
 メソッドを通じてメンバ変数を利用したり設定したりします。
 
 
-// 演習問題
+## 演習問題
+
+### Q.1
+
+```java
+class Car1{
+  int no;
+  int speed;
+
+  void setNo(int n){
+    no = n;
+  }
+  void run(int s){
+    speed = s;
+  }
+
+  // brakeメソッドを定義する
+  void brake(){
+    speed = 0;
+  }
+
+  void brake(int s){
+    speed = speed - s;
+  }
+
+  void display(){
+    System.out.println("ナンバー" + no + "の速度は" + speed + "です");
+  }
+}
+
+class DriveCar1{
+  public static void main(String[] args){
+    Car1 c1 = new Car1();
+    c1.setNo(2525);
+    c1.run(30);
+    c1.display();
+    
+    c1.brake(10);
+    c1.display();
+  }
+}
+Q.2
+java
+class Car2{
+  int no;
+  int speed;
+
+  Car2(){
+    no = 0;
+  }
+
+  Car2(int n){
+    no = n;
+  }
+
+  void run(int s){
+    speed = s;
+  }
+
+  // brakeメソッドを定義する
+  void brake(){
+    speed = 0;
+  }
+
+  void brake(int s){
+    speed = speed - s;
+  }
+
+  void display(){
+    System.out.println("ナンバー" + no + "の速度は" + speed + "です");
+  }
+}
+
+class DriveCar2{
+  public static void main(String[] args){
+    Car2 c1 = new Car2();
+    c1.run(30);
+    c1.display();
+    
+    Car2 c2 = new Car2(2525);
+    c2.run(50);
+    c2.display();
+  }
+}
+Q.3
+java
+class Car3{
+  private int no;
+  private int speed;
+
+  public Car3(){
+    no = 0;
+  }
+
+  public Car3(int n){
+    no = n;
+  }
+
+  public void run(int s){
+    speed = s;
+  }
+
+  public void brake(){
+    speed = 0;
+  }
+
+  public void brake(int s){
+    speed = speed - s;
+  }
+
+  public void display(){
+    System.out.println("ナンバー" + no + "の速度は" + speed + "です");
+  }
+}
+
+class DriveCar3{
+  public static void main(String[] args){
+    Car3 c1 = new Car3();
+    c1.run(30);
+    c1.display();
+    
+    Car3 c2 = new Car3(2525);
+    c2.speed = 50;
+    // c2.run(50);  // コメントアウトした行
+    c2.display();
+  }
+}
+注意: このままコンパイルすると1534行目でエラーが出ます。
+1534行目をコメントアウトして1535行目の//を削除すると正しく実行できます。
+
+Q.4
+java
+class Car4{
+  private int no;
+  private static int count = 0;
+
+  public Car4(){
+    no = 0;
+    count++;
+    System.out.println("ナンバー無しを作りました");
+  }
+
+  public Car4(int n){
+    no = n;
+    count++;
+    System.out.println("ナンバー" + no + "作りました");
+  }
+
+  public static void display(){
+    System.out.println(count + "台作成済みです");
+  }
+}
+
+class DriveCar4{
+  public static void main(String[] args){
+    Car4 c1 = new Car4();
+    Car4.display();
+    Car4 c2 = new Car4(2525);
+    Car4.display();
+    Car4 c3 = new Car4(8888);
+    Car4.display();
+  }
+}
