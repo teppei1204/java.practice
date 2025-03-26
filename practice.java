@@ -1585,3 +1585,11 @@ class DriveCar4{
   }
 }
 
+
+Java,クラスの定義
+
+class Greeting{
+  public static void main(String[] args) {
+    
+  }
+}
