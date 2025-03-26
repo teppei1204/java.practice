@@ -85,3 +85,25 @@ JDK(Java Development Kit)とは
     クラス名の次は波括弧{}
       波括弧{}で括られた部分をブロックという
       ブロックの中に処理を記述する
+
+メソッド(処理)
+  メソッドの定義
+  // public static void main(String[] args) {
+  // }
+
+コンパイル方法と実行
+  // System.out.println("");
+    処理の終わりにはセミコロン「;」を書く
+コンパイルとは
+  Javaのプログラムをパソコンが読み取れる機械語に変換することをいう
+コンパイル方法
+  Javacと書いてJavaのファイル名を書く
+    // javac Greeting.java
+  すると同じディレクトリにGreeting.classというファイルができているはず
+ファイルの実行
+  // java Greeting
+実行結果
+// Good morning
+// Good afternoon
+// Good evening
+
