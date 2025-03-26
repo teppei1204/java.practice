@@ -1657,3 +1657,51 @@ class Lesson2{
     System.out.println(let_bool);
   }
 }
+
+// 配列という英単語のarrayの前3文字をとったarrという配列変数に"sato""suzuki""takahashi"という三つのデータを代入する配列を作るもの
+class Lesson3{
+  public static void main(String[] args){
+    String[] arr;//データ型の後に各括弧。配列変数名を記述。
+    arr = new String[3];//各括弧の中に要素数
+
+    arr[0]="sato";
+    arr[1]="suzuki";
+    arr[2]="takahashi";//配列変数名の後にインデックス番号を書いてデータを代入する
+
+    System.out.println(arr[0]);
+    System.out.println(arr[1]);
+    System.out.println(arr[2]);
+  }
+}
+
+
+class Lesson4{
+  public static void main(String[] args){
+    String[] arr = {"sato","suzuki","takahashi"};//イコールを書いて配列に代入したいデータを記述。データを３つ代入しているので要素数を記述する必要はない
+
+    arr[1] = "tanaka";
+
+    System.out.println(arr[0]);
+    System.out.println(arr[1]);
+    System.out.println(arr[2]);
+  }
+}
+
+二次元配列はデータ型の角括弧を２つ
+class Lesson4{
+  public static void main(String[] args){
+    String[][] arr;
+    // String[][] arr = {{"sato","suzuki"}{"takahashi","tanaka"}}//一次元配列と同じように、省略する形でもかける
+    arr = new String[2][2];//データ型の後に要素数
+
+    arr[0][0] = "sato";
+    arr[0][1] = "suzuki";
+    arr[1][0] = "takahashi";
+    arr[1][1] = "tanaka";代入方法は1次元配列と同じ
+
+    System.out.println(arr[0][0]);
+    System.out.println(arr[0][1]);
+    System.out.println(arr[1][0]);
+    System.out.println(arr[1][1]);
+  }
+}
