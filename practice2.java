@@ -40,3 +40,12 @@ JVM上で動作する言語のことを指します。
 - Kotlin
 
 これらの言語は相互運用性があり、例えばKotlinからJavaで作られたコードを呼び出すことができます。
+
+
+・環境構築
+  プログラムを書いたり実行できたりする環境を自分のコンピュータに整えることをいう
+  環境構築のためにJDK,VSCodeをインストール
+JDK(Java Development Kit)とは
+  プログラムを実行する時に必要な機能がパッケージされたもの
+  OracleのサイトからJDKをダウンロード(https://www.oracle.com/jp/java/technologies/downloads/)
+
