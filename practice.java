@@ -1593,7 +1593,20 @@ class Greeting{
     System.out.println("Good morning");
 
     System.out.println("Good afternoon");
-    
+
     System.out.println("Good evening");
   }
 }
+
+
+class Lesson {
+  public static void main(String[] args) {
+    int let;//変数宣言
+    let = 1;//変数に1を代入
+
+    System.out.println(let);//変数内の参照
+  }
+}
+// コンパイルと実行
+// javac Lesson.java
+// java Lesson
