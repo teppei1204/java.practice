@@ -1610,3 +1610,50 @@ class Lesson {
 // コンパイルと実行
 // javac Lesson.java
 // java Lesson
+
+
+class Lesson2{
+  public static void main(String[] args) {
+    byte let01 = 1;
+    short let02 = 12345;
+    int let03 = 1234567890;
+    long let04 = 123456789000L;
+
+    System.out.println(let01);
+    System.out.println(let02);
+    System.out.println(let03);
+    System.out.println(let04);
+  }
+}
+
+class Lesson2{
+  public static void main(String[] args) {
+    double let01 = 1.23456789;
+    float let02 = 1.234F;
+
+    System.out.println(let01);
+    System.out.println(let02);
+  }
+}
+
+class Lesson2{
+  public static void main(String[] args) {
+    char let01 = 'c';
+    String let02 = "hello,World";
+
+    System.out.println(let01);
+    System.out.println(let02);
+  }
+}
+
+class Lesson2{
+  public static void main(String[] args) {
+    int let_a = 10;
+    int let_b = 1;
+    boolean let_bool;
+
+    let_bool = (let_a > let_b);
+
+    System.out.println(let_bool);
+  }
+}
