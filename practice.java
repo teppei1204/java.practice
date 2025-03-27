@@ -1718,3 +1718,72 @@ class Lesson5{
 }
 // 整数型のiを定義して0を代入する
 // iは4以下の比較演算子。iを1ずつ足してくiのインクリメント
+
+
+class Lesson6{
+  public static void main(String[] args) {
+    
+    for(int i = 0; i <= 4; i++){
+      if(i == 3){
+        break;
+      }
+      System.out.println(i);
+    }
+  }
+}
+// 3でループを抜けるので0から2まで表示される
+
+
+
+class Lesson7{
+  public static void main(String[] args) {
+    
+    for(int i = 0; i <= 4; i++){
+      if(i == 3){
+        continue;
+      }
+      System.out.println(i);
+    }
+  }
+}
+3をスキップするので0,1,2,4が表示される
+
+
+
+class Lesson8{
+  public static void main(String[] args) {
+    
+    for(int i = 0; i <= 2; i++){
+      for(int j = 0; j <= 2; j++)
+      System.out.println(i + "-" + j);
+    }
+  }
+}
+
+
+
+class Lesson9{
+  public static void main(String[] args) {
+    int arr[] = {2,4,6,8,10};
+    
+    for(int i = 0; i <= 4; i++){
+      System.out.println(i);
+    }
+  }
+}
+2から10までの偶数が表示される
+
+
+
+class Lesson9{
+  public static void main(String[] args) {
+    int arr[] = {2,4,6,8,10};
+    int sum = 0;
+    
+    for(int i = 0; i <= 4; i++){
+      sum += arr[i];//複合演算子
+    }
+    System.out.println(sum);
+  }
+}
+// sumは30となる
