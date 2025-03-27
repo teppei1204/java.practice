@@ -1705,3 +1705,16 @@ class Lesson4{
     System.out.println(arr[1][1]);
   }
 }
+
+
+class Lesson5{
+  public static void main(String[] args) {
+    
+    for(int i = 0; i <= 4; i++){//ループ終了の条件を判定
+      System.out.println(i);
+    
+    }
+  }
+}
+// 整数型のiを定義して0を代入する
+// iは4以下の比較演算子。iを1ずつ足してくiのインクリメント
